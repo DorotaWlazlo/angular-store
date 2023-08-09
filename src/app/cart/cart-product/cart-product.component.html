@@ -1,0 +1,8 @@
+<li *ngIf="product" class="center">
+    <img class="cart--product-icon" src="assets/icons/{{product.id}}.png" alt="?" />
+    <p>{{product.name}}</p>
+    <button (click)="removeFromCartButton()" class="quantity-btn remove-btn center">-</button>
+    <span class="quantity-text center">{{quantity}}</span>
+    <button (click)="addToCartButton()" class="quantity-btn add-btn center">+</button>
+    <p class = "margin-left">{{getTotal() | currency: 'GBP'}}</p>
+</li>

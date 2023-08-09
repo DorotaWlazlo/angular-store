@@ -1,0 +1,23 @@
+<div class="cart--item-list-container cart" id="cart">
+    <ul class="item-list cart--item-list">
+        <div *ngIf="productsInCart">
+            <div *ngFor="let product of products | async">
+                <ng-container *ngIf="this.productsInCart.hasOwnProperty(product.name)">
+                    <app-cart-product [product]="product" [quantity]="this.productsInCart[product.name]"
+                        (addToCart)="addToCart($event)" (removeFromCart)="removeFromCart($event)" />
+                </ng-container>
+            </div>
+        </div>
+        <div *ngIf="getTotal()===0">Your cart is empty</div>
+    </ul>
+</div>
+<div class="total">
+    <div>
+        <h3>Total</h3>
+    </div>
+    <div>
+        <span class="total-number">{{getTotal() | currency: 'GBP'}}</span>
+    </div>
+    <button class="btn" >Finalise order</button>
+    <button class="btn" (click)="clearCart()">Clear cart</button>
+</div>

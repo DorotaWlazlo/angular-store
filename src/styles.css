@@ -1,1 +1,133 @@
-/* You can add global styles to this file, and also import other style files */
+
+.store--product-list {
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    grid-gap: 1rem;
+    justify-content: center;
+}
+
+.store--product-list li {
+    display: grid;
+    place-items: center;
+    grid-row-gap: 0.5rem;
+    border: 2px solid #474141;
+    border-radius: 10px;
+}
+
+.store--product-icon img {
+    width: 125px;
+    height: 125px;
+}
+#cart {
+    height: 75vh;
+    padding: 1rem;
+
+    display: grid;
+    grid-template-rows: auto 1.5fr auto auto;
+    grid-gap: 1rem;
+    justify-content: center;
+}
+
+.cart {
+    display: block;
+    box-sizing: border-box;
+    min-width: 320px;
+    height: 100%;
+    padding: 0 1rem;
+
+    overflow-y: scroll;
+}
+
+#cart h2 {
+    margin-bottom: 0;
+    text-align: center;
+}
+
+
+.cart--item-list {
+    padding: 0;
+    margin: 0;
+}
+
+@media only screen and (max-width: 450px) {
+    .cart--item-list-container {
+        border: none;
+    }
+}
+
+.cart--item-list li {
+    padding: 1rem 0;
+
+    display: grid;
+    grid-template-columns: 30px minmax(450px, 1fr) repeat(6, auto);
+    grid-gap: 0.5rem;
+    align-items: center;
+
+    border-bottom: 1px dotted #000000;
+
+    font-size: 1.25rem;
+}
+
+.cart--item-list li:last-child {
+    border-bottom: none;
+}
+
+.cart--product-icon {
+    width: 100px;
+}
+
+
+.center {
+    display: grid;
+    place-items: center;
+}
+
+.quantity-btn {
+    width: 24px;
+    height: 24px;
+  
+
+    border-radius: 0.25rem;
+
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: -10;
+}
+
+.remove-btn {
+    border: 2px solid #d32f2f;
+    background-color: #ffcdd2;
+    color: #d32f2f;
+}
+
+.add-btn {
+    border: 2px solid #388e3c;
+    background-color: #c8e6c9;
+    color: #388e3c;
+}
+
+.quantity-text {
+    width: 24px;
+    height: 24px;
+
+    border-radius: 0.25rem;
+    border: 2px solid #757575;
+    color: #757575;
+
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.total {
+    padding: 0.5rem 1rem;
+
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    align-items: center;
+}
+
+.total-number {
+    font-weight: bold;
+}

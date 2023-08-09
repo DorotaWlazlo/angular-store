@@ -1,0 +1,22 @@
+<li *ngIf="product">
+    <div class="store--product-icon">
+        <img src="assets/icons/{{product.id}}.png" alt="?" />
+    </div>
+    <div>{{product.name}}</div>
+    <button (click)="clicked()">Add to cart</button>
+    <div ngbAccordion>
+        <div ngbAccordionItem>
+            <h2 ngbAccordionHeader>
+                <button ngbAccordionButton>Price: {{product.price | currency: 'GBP'}}</button>
+            </h2>
+            <div ngbAccordionCollapse>
+                <div ngbAccordionBody>
+                    <ng-template><p>Manufacturer: {{product.manufacturer}}</p>
+                    <p></p>
+                    <p>Description: {{product.description}}</p>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
