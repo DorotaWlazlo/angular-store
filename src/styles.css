@@ -131,3 +131,7 @@
 .total-number {
     font-weight: bold;
 }
+
+.test {
+    font-family: 'Courier New', Courier, monospace;
+}
