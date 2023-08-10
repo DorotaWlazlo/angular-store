@@ -15,14 +15,14 @@
             <span class="list-group-item">Manufacturers</span>
             <div *ngFor="let label of manufacturers | async" class="list-group-item">
                 <label>
-                    <input type="checkbox" (change)="onCheckboxChange(label)" [value]="label">
+                    <input #manufacturerCheckbox type="checkbox" (change)="onCheckboxChange(label)" [value]="label">
                     {{ label }}
                 </label>
             </div>
             <span class="list-group-item">Product type</span>
             <div *ngFor="let label of types | async" class="list-group-item">
                 <label>
-                    <input type="checkbox" (change)="onCheckboxChange(label)" [value]="label">
+                    <input #typeCheckbox type="checkbox" (change)="onCheckboxChange(label)" [value]="label">
                     {{ label }}
                 </label>
             </div>
