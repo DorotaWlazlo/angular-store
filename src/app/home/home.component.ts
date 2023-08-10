@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component} from '@angular/core';
 import { Product } from '../models/product.model';
 import { StoreService } from '../services/store.service';
 
@@ -16,11 +16,6 @@ export class HomeComponent {
 
   selectedManufacturers: string[] = [];
   selectedTypes: string[] = [];
-
-  @ViewChild('manufacturerCheckbox')
-  manufacturerCheckbox!: ElementRef;
-  @ViewChild('typeCheckbox')
-  typeCheckbox!: ElementRef;
 
   addToCart(product: Product) {
     if(!this.storeService.productsInCart.hasOwnProperty(product.name)){
@@ -76,13 +71,12 @@ export class HomeComponent {
     if(this.selectedTypes.length!=0){
       this.products = Promise.resolve((await this.products).filter((el) => this.selectedTypes.includes(el.type)))
     }
+    window.scrollTo(0, 0);
   }
 
   clearFilters() {
     this.selectedManufacturers = []
     this.selectedTypes = []
     this.refreshStore()
-    this.manufacturerCheckbox.nativeElement.checked = false;
-    this.typeCheckbox.nativeElement.checked = false;
   }
 }

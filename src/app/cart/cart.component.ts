@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductsInCart, StoreService } from '../services/store.service';
 import { Product } from '../models/product.model';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-cart',
@@ -8,7 +9,7 @@ import { Product } from '../models/product.model';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
-constructor(private readonly storeService: StoreService) {}
+constructor(private readonly storeService: StoreService, private readonly modalService: NgbModal) {}
 
   productsInCart: ProductsInCart = this.storeService.productsInCart;
   products = this.storeService.products;
@@ -41,4 +42,12 @@ constructor(private readonly storeService: StoreService) {}
   getTotal() {
     return this.storeService.total
   }
+
+  openVerticallyCentered(content: any, content2: any) {
+    if(this.storeService.total === 0)
+      this.modalService.open(content2, { centered: true });
+    else
+		  this.modalService.open(content, { centered: true });
+    this.clearCart()
+	}
 }

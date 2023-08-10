@@ -18,6 +18,30 @@
     <div>
         <span class="total-number">{{getTotal() | currency: 'GBP'}}</span>
     </div>
-    <button class="btn" >Finalise order</button>
+    <button class="btn" (click)="openVerticallyCentered(content, content2)" >Finalise order</button>
     <button class="btn" (click)="clearCart()">Clear cart</button>
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title">Order finalised</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+            <p>Thank you for your order :)</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+        </div>
+    </ng-template>
+        <ng-template #content2 let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title">Empty cart</h4>
+                <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="modal-body">
+                <p>You cannot make an empty order&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+            </div>
+        </ng-template>
 </div>
